@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &135937418 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1775413688199104742, guid: c3990ca09eecb8a43a0ab45c1613eae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4867377321609324953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &262082886
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208312048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12762016, y: -0.3609131, z: 0.049930613, w: 0.9224759}
+  m_LocalRotation: {x: 0.12762018, y: -0.3609131, z: 0.049930617, w: 0.9224759}
   m_LocalPosition: {x: 18.72, y: 4.083, z: 1.0900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1030,7 +1036,7 @@ PrefabInstance:
     - target: {fileID: 881424976888335543, guid: 3c32b3a0516ac3c428b4024992c25229,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1701589278155441025, guid: 3c32b3a0516ac3c428b4024992c25229,
         type: 3}
@@ -1304,7 +1310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651750233}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12762016, y: -0.3609131, z: 0.049930613, w: 0.9224759}
+  m_LocalRotation: {x: 0.12762018, y: -0.3609131, z: 0.049930617, w: 0.9224759}
   m_LocalPosition: {x: 18.72, y: 4.083, z: 1.0900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1674,7 +1680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &1920487096449691684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,14 +1802,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654421521436206704}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.75, y: 1.05, z: -0.1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: -0.5583574, y: -0.7468381, z: -0.3598468, w: 0.031309653}
+  m_LocalPosition: {x: -0.00086, y: 0.00188, z: -0.00059}
+  m_LocalScale: {x: 0.014999995, y: 0.015000001, z: 0.014999997}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1430904593}
-  m_Father: {fileID: 4867377321609324954}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_Father: {fileID: 135937418}
+  m_LocalEulerAnglesHint: {x: -145.078, y: -25.661987, z: 261.761}
 --- !u!33 &3031385041655051119
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1886,11 +1892,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4977978408947858126, guid: c3990ca09eecb8a43a0ab45c1613eae8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2143290347668061386}
-    - targetCorrespondingSourceObject: {fileID: 4977978408947858126, guid: c3990ca09eecb8a43a0ab45c1613eae8,
+      addedObject: {fileID: 1584503066}
+    - targetCorrespondingSourceObject: {fileID: 1775413688199104742, guid: c3990ca09eecb8a43a0ab45c1613eae8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1584503066}
+      addedObject: {fileID: 2143290347668061386}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5647096468718674036, guid: c3990ca09eecb8a43a0ab45c1613eae8,
         type: 3}
@@ -1908,10 +1914,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4867377321609324961}
-    - targetCorrespondingSourceObject: {fileID: 5647096468718674036, guid: c3990ca09eecb8a43a0ab45c1613eae8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4867377321609324963}
   m_SourcePrefab: {fileID: 100100000, guid: c3990ca09eecb8a43a0ab45c1613eae8, type: 3}
 --- !u!4 &4867377321609324954 stripped
 Transform:
@@ -1962,12 +1964,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attributeSystemBehaviour: {fileID: 0}
   _speedAttribute: {fileID: 0}
-  _speed: 5
+  _animator: {fileID: 4867377321609324964}
   _lookAtBus: {fileID: 11400000, guid: dedd9acb5be15084680ced428b2b54e0, type: 2}
-  _states: []
-  references:
-    version: 2
-    RefIds: []
+  _enterIdleEvent: {fileID: 11400000, guid: e33b974b2eebb2b4f944acd27f925a3b, type: 2}
+  _enterIWalkingEvent: {fileID: 11400000, guid: a8932d3ca3bfa3e4caa1e1838830a2be,
+    type: 2}
 --- !u!114 &4867377321609324960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1996,69 +1997,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fee8b84eb347b587420d888f55d88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4867377321609324963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4867377321609324955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d3f257e02150067418853a4ab8457ec5,
+--- !u!95 &4867377321609324964 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1438187775812395188, guid: c3990ca09eecb8a43a0ab45c1613eae8,
     type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4867377321609324959}
-        m_TargetAssemblyTypeName: ArchMageTest.Gameplay.Player.PlayerBehaviour, Gameplay
-        m_MethodName: Move
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 406b7a65-1fe9-41d4-8adf-0aeb49a3008a
-    m_ActionName: Default/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4867377321609324959}
-        m_TargetAssemblyTypeName: ArchMageTest.Gameplay.Player.PlayerBehaviour, Gameplay
-        m_MethodName: Attack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b2057c22-a50b-4e24-af9f-a4dc8a3ac633
-    m_ActionName: Default/Attack[/Keyboard/f]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: MnK
-  m_DefaultActionMap: Default
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_PrefabInstance: {fileID: 4867377321609324953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

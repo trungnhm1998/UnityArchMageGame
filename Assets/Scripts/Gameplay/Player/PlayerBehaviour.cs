@@ -1,44 +1,77 @@
-﻿using AttributeSystem;
+﻿using ArchMageTest.Gameplay.Events;
+using ArchMageTest.Gameplay.Player.States;
+using AttributeSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ArchMageTest.Gameplay.Player
 {
-    public class PlayerBehaviour : MonoBehaviour
+    public class PlayerBehaviour : MonoBehaviour, GameInput.IDefaultActions
     {
+        public static readonly int IsWalking = Animator.StringToHash("IsWalking");
+        public static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+
         [SerializeField] private AttributeSystemBehaviour _attributeSystemBehaviour;
         [SerializeField] private AttributeScriptableObject _speedAttribute;
-        [SerializeField] private float _speed = 5f;
+        [SerializeField] private Animator _animator;
+        public Animator Animator => _animator;
         [SerializeField] private LookAtBus _lookAtBus;
+        [SerializeField] private VoidEventChannelSO _enterIdleEvent;
+        [SerializeField] private VoidEventChannelSO _enterIWalkingEvent;
 
-        private Transform _transform;
-        private Vector2 _inputVector;
+        public Vector2 InputVector { get; set; }
 
+        public IState IdleState { get; } = new Idle();
+        public IState WalkState { get; } = new Walk();
+        public IState AttackingState { get; private set; }
+
+        private IState _currentState;
+
+        public void ChangeState(IState state)
+        {
+            Debug.Log($"Change state to {state}");
+            _currentState?.Exit(this);
+            _currentState = state;
+            _currentState.Enter(this);
+        }
+
+        private GameInput _gameInput;
 
         private void Awake()
         {
-            _transform = GetComponent<Transform>();
+            _gameInput = new GameInput();
+            _gameInput.Default.Enable();
+            _gameInput.Default.SetCallbacks(this);
+            AttackingState = new Attacking(_lookAtBus, _enterIdleEvent, _enterIWalkingEvent);
         }
 
-        public void Move(InputAction.CallbackContext context)
+        private void Start()
         {
-            _inputVector = context.ReadValue<Vector2>();
-        }
-
-        public void Attack(InputAction.CallbackContext context)
-        {
-            if (!context.performed) return;
-            Debug.Log("Attacking");
-            _transform.rotation = Quaternion.LookRotation(_lookAtBus.LookAt - _transform.position, Vector3.up);
+            ChangeState(IdleState);
         }
 
         private void Update()
         {
-            if (_inputVector == Vector2.zero) return;
-            _inputVector.Normalize(); // prevent diagonal movement from being faster
-            _transform.position += new Vector3(_inputVector.x, 0, _inputVector.y) * _speed * Time.deltaTime;
-            var targetRotation = Quaternion.LookRotation(new Vector3(_inputVector.x, 0, _inputVector.y), Vector3.up);
-            _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, 0.15f);
+            _currentState.Update();
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10, 10, 300, 20), $"vector: {InputVector}");
+            var time = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            GUI.Label(new Rect(10, 30, 300, 20), $"time: {time}");
+        }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            InputVector = context.ReadValue<Vector2>();
+            _animator.SetBool(IsWalking, InputVector != Vector2.zero);
+            _currentState.Move(context);
+        }
+
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            _currentState.Attack(context);
         }
     }
 }
