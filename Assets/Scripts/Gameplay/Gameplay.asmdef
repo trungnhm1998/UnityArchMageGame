@@ -1,0 +1,18 @@
+{
+    "name": "Gameplay",
+    "rootNamespace": "ArchMageTest",
+    "references": [
+        "GUID:5dec91908a164d62bad452a6ab84c97e",
+        "GUID:3b8e762d2405445ea92912b0f68b2c06",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
