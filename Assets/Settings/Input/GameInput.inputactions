@@ -82,17 +82,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1d9dd2cc-20e2-4ecd-a244-aa87bee2570b",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MnK",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "aeb0b3a0-32c6-4e34-b728-c623b0437689",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
