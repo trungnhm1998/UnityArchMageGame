@@ -102422,4 +102422,20 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.43333334
+    functionName: RaiseEvent
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 0fa68b74111aa06488bc84a7e632dbb5,
+      type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6333333
+    functionName: RaiseEvent
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 672b51743e5f0db4db478a2a8c5caf0f,
+      type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
