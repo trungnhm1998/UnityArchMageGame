@@ -1,6 +1,5 @@
 ﻿using ArchMageTest.Gameplay.Events;
 using ArchMageTest.Gameplay.Player.States;
-using AttributeSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +10,6 @@ namespace ArchMageTest.Gameplay.Player
         public static readonly int IsWalking = Animator.StringToHash("IsWalking");
         public static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
-        [SerializeField] private AttributeSystemBehaviour _attributeSystemBehaviour;
-        [SerializeField] private AttributeScriptableObject _speedAttribute;
         [SerializeField] private Animator _animator;
         public Animator Animator => _animator;
         [SerializeField] private LookAtBus _lookAtBus;
