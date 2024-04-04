@@ -4,12 +4,12 @@ namespace ArchMageTest.Gameplay.Player.States
 {
     public abstract class StateBase : IState
     {
-        private PlayerBehaviour _playerBehaviour;
-        protected PlayerBehaviour Player => _playerBehaviour;
+        private PlayerBehaviour _playerCompBehaviour;
+        protected PlayerBehaviour PlayerComp => _playerCompBehaviour;
 
         public virtual void Enter(PlayerBehaviour playerBehaviour)
         {
-            _playerBehaviour = playerBehaviour;
+            _playerCompBehaviour = playerBehaviour;
         }
 
         public virtual void Exit(PlayerBehaviour playerBehaviour) { }

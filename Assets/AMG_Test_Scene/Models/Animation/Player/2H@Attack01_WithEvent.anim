@@ -102439,3 +102439,11 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.4333333
+    functionName: RaiseEvent
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: ab23170717b91a34a96f5377e759705c,
+      type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

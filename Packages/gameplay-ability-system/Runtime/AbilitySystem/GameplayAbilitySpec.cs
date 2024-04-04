@@ -27,6 +27,7 @@ namespace GameplayAbilitySystem.AbilitySystem
         }
 
         /// <summary>
+        /// Init
         /// Initiation method of ability
         /// </summary>
         /// <param name="owner">Owner of this ability</param>
@@ -37,6 +38,10 @@ namespace GameplayAbilitySystem.AbilitySystem
             _abilitySO = abilitySO;
         }
 
+        /// <summary>
+        /// Execute
+        /// </summary>
+        /// <returns></returns>
         public virtual bool TryActiveAbility()
         {
             if (AbilitySO == null)
@@ -68,12 +73,15 @@ namespace GameplayAbilitySystem.AbilitySystem
         {
             _isActive = true;
             yield return OnAbilityActive();
+            // Should I call EndAbility here?
         }
 
         /// <summary>
+        /// Stop
+        /// 
         /// Not the same as ability being removed, ability ended but still in the system
         ///
-        /// This should always be called
+        /// This should always be called, so the coroutine could be stopped and reactive the ability again
         /// </summary>
         public void EndAbility()
         {
@@ -110,6 +118,8 @@ namespace GameplayAbilitySystem.AbilitySystem
         public virtual void OnAbilityGranted(GameplayAbilitySpec gameplayAbilitySpec) { }
 
         /// <summary>
+        /// Update
+        /// 
         /// Will be called by <see cref="ActivateAbility"/> when the ability is active, implement this for custom logic
         /// 
         /// Using IEnumerator so the ability can produce step by step like having delay time, etc...
