@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58c8cc3a700467db6ad792e5abbe7a7, type: 3}
+  m_Name: MoveTowardPlayerState
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 11400000, guid: 9d231ba65ffc0374ebb8731900a4e548, type: 2}
+  _meleeAttackState: {fileID: 11400000, guid: ca0291278fb204f4e9c91804479cd445, type: 2}
+  _rangeAttackState: {fileID: 11400000, guid: 42efbca8a77849c4b96947ae9b750b14, type: 2}
+  _moveTimeout: 3
+  _chanceToMeleeAttack: 0.8

@@ -13,6 +13,7 @@ namespace ArchMageTest.Gameplay.Character
         public static readonly int IsWalking = Animator.StringToHash("IsWalking");
         public static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
+        [SerializeField] private CharacterTransformBus _playerTransform;
         [SerializeField] private AbilitySystemBehaviour _abilitySystem;
         [SerializeField] private Animator _animator;
         public Animator Animator => _animator;
@@ -35,6 +36,7 @@ namespace ArchMageTest.Gameplay.Character
         }
 
         private string _currentStateName;
+
         public void ChangeState(IState state)
         {
             _currentStateName = state.GetType().Name;
@@ -47,6 +49,7 @@ namespace ArchMageTest.Gameplay.Character
 
         private void Awake()
         {
+            _playerTransform.SetGameObject(gameObject);
             _gameInput = new GameInput();
             _gameInput.Default.Enable();
             _gameInput.Default.SetCallbacks(this);
@@ -78,7 +81,10 @@ namespace ArchMageTest.Gameplay.Character
             _currentState.Attack(context);
         }
 
+        public event Action Attacked;
         public event Action<AbilitySystemBehaviour> TargetHit;
+
+        public void OnTargetAttacked() => Attacked?.Invoke();
 
         public void OnTargetHit(AbilitySystemBehaviour target)
         {

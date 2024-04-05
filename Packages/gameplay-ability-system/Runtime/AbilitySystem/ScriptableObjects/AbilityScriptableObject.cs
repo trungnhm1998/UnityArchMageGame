@@ -5,7 +5,7 @@ namespace GameplayAbilitySystem.AbilitySystem.ScriptableObjects
 {
     public abstract class AbilityScriptableObject : ScriptableObject
     {
-        public GameplayAbilitySpec GetAbilitySpec(AbilitySystemBehaviour owner)
+        public virtual GameplayAbilitySpec GetAbilitySpec(AbilitySystemBehaviour owner)
         {
             var ability = CreateAbility();
             ability.InitAbility(owner, this);

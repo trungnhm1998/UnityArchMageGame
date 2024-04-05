@@ -57,10 +57,11 @@ namespace ArchMageTest.Gameplay.Abilities
 
         protected override IEnumerator OnAbilityActive()
         {
+            _attacking = true;
+            _attacker.Attacked += AnimationEnded;
             _attacker.TargetHit += TargetHit;
             SetParameter(); // this will play the animation
-            // wait for animation to finish
-            yield return new WaitForSeconds(1f);
+            yield return new WaitUntil(() => !_attacking);
             EndAbility(); // TODO: Could do template pattern here so I won't forget to call EndAbility
         }
 
@@ -79,8 +80,18 @@ namespace ArchMageTest.Gameplay.Abilities
         protected override void OnAbilityEnded()
         {
             Debug.Log("Ability ended");
-            base.OnAbilityEnded();
+            _attacker.Attacked -= AnimationEnded;
             _attacker.TargetHit -= TargetHit;
+            base.OnAbilityEnded();
+        }
+
+        private bool _attacking = false;
+        private void AnimationEnded()
+        {
+            _attacker.Attacked -= AnimationEnded;
+            _attacker.TargetHit -= TargetHit;
+            _animator.ResetTrigger(_parameterHash);
+            _attacking = false;
         }
 
         private void SetParameter()

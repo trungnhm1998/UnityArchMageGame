@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using GameplayAbilitySystem.AbilitySystem.Components;
 using GameplayAbilitySystem.AbilitySystem.ScriptableObjects;
@@ -7,6 +8,7 @@ namespace GameplayAbilitySystem.AbilitySystem
 {
     public abstract class GameplayAbilitySpec
     {
+        public event Action AbilityEndedEvent;
         private bool _isActive;
         public bool IsActive => _isActive;
 
@@ -92,7 +94,10 @@ namespace GameplayAbilitySystem.AbilitySystem
             OnAbilityEnded();
         }
 
-        protected virtual void OnAbilityEnded() { }
+        protected virtual void OnAbilityEnded()
+        {
+            AbilityEndedEvent?.Invoke();
+        }
 
         /// <summary>
         /// Need the owner to active so we could use the coroutine
