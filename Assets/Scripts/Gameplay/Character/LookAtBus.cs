@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ArchMageTest.Gameplay.Player
+namespace ArchMageTest.Gameplay.Character
 {
     public class LookAtBus : ScriptableObject
     {

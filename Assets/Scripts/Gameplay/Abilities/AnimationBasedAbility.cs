@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using GameplayAbilitySystem.AbilitySystem;
 using GameplayAbilitySystem.AbilitySystem.Components;
 using GameplayAbilitySystem.AbilitySystem.ScriptableObjects;
@@ -7,17 +6,9 @@ using UnityEngine;
 
 namespace ArchMageTest.Gameplay.Abilities
 {
-    [Serializable]
-    public struct AbilityParameters
-    {
-        public int Level;
-        public float Damage;
-    }
-
     [CreateAssetMenu(menuName = "Create AnimationBasedAbility", fileName = "AnimationBasedAbility", order = 0)]
-    public class AnimationBasedAbility : AbilityScriptableObject
+    public class AnimationBasedAbility : ArchMageAbilityBase
     {
-        [field: SerializeField] public AbilityParameters AbilityParameters { get; private set; }
         [SerializeField] private ParameterType _parameterType;
         [SerializeField] private string _parameterName;
 

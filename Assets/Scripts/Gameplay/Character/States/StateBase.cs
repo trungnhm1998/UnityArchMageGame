@@ -1,6 +1,6 @@
 ﻿using UnityEngine.InputSystem;
 
-namespace ArchMageTest.Gameplay.Player.States
+namespace ArchMageTest.Gameplay.Character.States
 {
     public abstract class StateBase : IState
     {

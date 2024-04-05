@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f01f55a72e144d3b5645aae37a6f265, type: 3}
   m_Name: AttributeSets
   m_EditorClassIdentifier: 
+  _maxHealth: {fileID: 11400000, guid: 59f0fdc2eb6a7cd49b9dfd1c72556ccf, type: 2}
   _health: {fileID: 11400000, guid: a5b607cbaea1e9641bbf7dadf4e24468, type: 2}
   _speed: {fileID: 11400000, guid: 941cec0732b62e842ab703d4d318095d, type: 2}

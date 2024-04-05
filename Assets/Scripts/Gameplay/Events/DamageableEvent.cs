@@ -1,4 +1,4 @@
-using ArchMageTest.Gameplay.Player;
+using ArchMageTest.Gameplay.Character;
 using UnityEngine;
 
 namespace ArchMageTest.Gameplay.Events

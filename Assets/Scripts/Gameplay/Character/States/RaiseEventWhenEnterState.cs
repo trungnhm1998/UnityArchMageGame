@@ -1,7 +1,7 @@
 ﻿using ArchMageTest.Gameplay.Events;
 using UnityEngine;
 
-namespace ArchMageTest.Gameplay.Player.States
+namespace ArchMageTest.Gameplay.Character.States
 {
     public class RaiseEventWhenEnterState : StateMachineBehaviour
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ArchMageTest.Gameplay.Player
+namespace ArchMageTest.Gameplay.Character
 {
     public class HitBoxRelay : MonoBehaviour
     {

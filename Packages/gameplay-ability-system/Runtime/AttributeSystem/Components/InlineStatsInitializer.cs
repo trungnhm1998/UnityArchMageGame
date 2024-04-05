@@ -29,9 +29,23 @@ namespace GameplayAbilitySystem.AttributeSystem.Components
                 var initValue = _database[i];
                 _attributeSystem.AddAttribute(initValue.Attribute);
                 _attributeSystem.SetAttributeBaseValue(initValue.Attribute, initValue.Value);
+                
             }
 
             _attributeSystem.UpdateAttributeValues();
+            
+            InitAllAttributes();
+        }
+
+        private void InitAllAttributes()
+        {
+            for (int i = 0; i < _attributeSystem.AttributeValues.Count; i++)
+            {
+                var attributeValue = _attributeSystem.AttributeValues[i];
+                _attributeSystem.AttributeValues[i] =
+                    attributeValue.Attribute.CalculateInitialValue(attributeValue,
+                        _attributeSystem.AttributeValues);
+            }
         }
     }
 }

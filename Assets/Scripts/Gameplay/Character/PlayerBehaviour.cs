@@ -1,12 +1,12 @@
 ﻿using System;
 using ArchMageTest.Gameplay.Abilities;
+using ArchMageTest.Gameplay.Character.States;
 using ArchMageTest.Gameplay.Events;
-using ArchMageTest.Gameplay.Player.States;
 using GameplayAbilitySystem.AbilitySystem.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ArchMageTest.Gameplay.Player
+namespace ArchMageTest.Gameplay.Character
 {
     public class PlayerBehaviour : MonoBehaviour, GameInput.IDefaultActions, IAttacker
     {

@@ -2,7 +2,7 @@
 using ArchMageTest.Gameplay.Events;
 using UnityEngine;
 
-namespace ArchMageTest.Gameplay.Player.States
+namespace ArchMageTest.Gameplay.Character.States
 {
     /// <summary>
     /// wait until animation event is triggered to active hit box

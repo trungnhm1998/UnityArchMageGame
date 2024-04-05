@@ -204,6 +204,13 @@ namespace GameplayAbilitySystem.AttributeSystem.Components
         /// <returns></returns>
         public bool TryGetAttributeValue(AttributeScriptableObject attribute, out AttributeValue value)
         {
+            if (attribute == null)
+            {
+                Debug.LogWarning($"AttributeSystemBehaviour::TryGetAttributeValue::Attribute is null");
+                value = new AttributeValue();
+                return false;
+            }
+
             var cache = GetAttributeIndexCache();
             if (cache.TryGetValue(attribute, out var index))
             {
