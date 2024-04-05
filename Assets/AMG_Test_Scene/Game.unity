@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 601095669}
   - component: {fileID: 601095670}
   - component: {fileID: 601095671}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MeleeAttackRange
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -909,7 +909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initOnAwake: 1
   _updateOnLateUpdate: 1
-  _attributeEvents: []
+  _attributeEvents:
+  - {fileID: 11400000, guid: 00fb5f499f783404e9ca752ed150a8a4, type: 2}
   _attributes:
   - {fileID: 11400000, guid: 941cec0732b62e842ab703d4d318095d, type: 2}
   - {fileID: 11400000, guid: 59f0fdc2eb6a7cd49b9dfd1c72556ccf, type: 2}
@@ -959,6 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5906daef3a4a445eaeed90d8d7d82236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterTransformBus: {fileID: 11400000, guid: 9d231ba65ffc0374ebb8731900a4e548,
+    type: 2}
   _attributeSystem: {fileID: 4867377321609324965}
 --- !u!114 &1303434056
 MonoBehaviour:
@@ -3370,7 +3373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initOnAwake: 1
   _updateOnLateUpdate: 1
-  _attributeEvents: []
+  _attributeEvents:
+  - {fileID: 11400000, guid: a4a8c6cf62dbedc479eb9b0397a58e25, type: 2}
   _attributes:
   - {fileID: 11400000, guid: 941cec0732b62e842ab703d4d318095d, type: 2}
   - {fileID: 11400000, guid: 59f0fdc2eb6a7cd49b9dfd1c72556ccf, type: 2}

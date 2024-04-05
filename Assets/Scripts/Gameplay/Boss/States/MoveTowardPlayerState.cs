@@ -44,6 +44,7 @@ namespace ArchMageTest.Gameplay.Boss.States
         public void StayInRange()
         {
             _inRange = true;
+            _movementController.StopMovement();
         }
 
         private float _timeLeft;

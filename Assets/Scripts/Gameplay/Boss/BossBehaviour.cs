@@ -2,6 +2,9 @@
 using ArchMageTest.Gameplay.Abilities;
 using ArchMageTest.Gameplay.Boss.States;
 using GameplayAbilitySystem.AbilitySystem.Components;
+using GameplayAbilitySystem.AttributeSystem;
+using GameplayAbilitySystem.AttributeSystem.Components;
+using GameplayAbilitySystem.AttributeSystem.ScriptableObjects;
 using UnityEngine;
 
 namespace ArchMageTest.Gameplay.Boss
@@ -12,9 +15,31 @@ namespace ArchMageTest.Gameplay.Boss
 
         private IState _currentState;
 
+        private AttributeSystemBehaviour _attributeSystem;
+
         private void Awake()
         {
             ChangeState(_spawnState);
+            _attributeSystem = GetComponent<AttributeSystemBehaviour>();
+        }
+
+        private void OnEnable()
+        {
+            _attributeSystem.PostAttributeChange += CheckHealth;
+        }
+
+        private void OnDisable()
+        {
+            _attributeSystem.PostAttributeChange -= CheckHealth;
+        }
+
+        private void CheckHealth(AttributeScriptableObject attribute, AttributeValue oldvalue, AttributeValue newvalue)
+        {
+            if (attribute != AttributeSets.Health) return;
+            if (newvalue.CurrentValue <= 0)
+            {
+                ChangeState(new DeathState());
+            }
         }
 
 #if UNITY_EDITOR
@@ -54,5 +79,10 @@ namespace ArchMageTest.Gameplay.Boss
         }
 
         public void OnAttacked() => Attacked?.Invoke();
+        
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }
