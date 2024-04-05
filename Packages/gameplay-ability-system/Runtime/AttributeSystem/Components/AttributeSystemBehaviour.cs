@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using GameplayAbilitySystem.AttributeSystem.ScriptableObjects;
 using UnityEngine;
@@ -177,13 +176,12 @@ namespace GameplayAbilitySystem.AttributeSystem.Components
         /// <summary>
         /// For every <see cref="AttributeScriptableObject"/> in the system, create a new <see cref="AttributeValue"/>
         /// to represent a updated value at run time.
-        ///
-        /// TODO: Refactor to not use in update loop
         /// </summary>
         public void UpdateAttributeValues()
         {
-            foreach (var oldAttributeValue in _attributeValues)
+            for (var index = 0; index < _attributeValues.Count; index++)
             {
+                var oldAttributeValue = _attributeValues[index];
                 var evaluatedAttribute = oldAttributeValue
                     .Attribute.CalculateCurrentAttributeValue(oldAttributeValue, _attributeValues);
 

@@ -1,13 +1,20 @@
-﻿using UnityEngine;
+﻿using ArchMageTest.Gameplay.Abilities;
+using GameplayAbilitySystem.AttributeSystem.Components;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ArchMageTest.Gameplay.Player.States
 {
     public class Walk : StateBase
     {
+        private float _speed;
         public override void Enter(PlayerBehaviour playerBehaviour)
         {
             base.Enter(playerBehaviour);
+
+            var attributeSystemBehaviour = playerBehaviour.GetComponent<AttributeSystemBehaviour>();
+            attributeSystemBehaviour.TryGetAttributeValue(AttributeSets.Speed, out var speedValue);
+            _speed = speedValue.CurrentValue;
         }
 
         public override void Exit(PlayerBehaviour playerBehaviour)
@@ -37,7 +44,7 @@ namespace ArchMageTest.Gameplay.Player.States
             }
 
             PlayerComp.transform.position +=
-                new Vector3(PlayerComp.InputVector.x, 0, PlayerComp.InputVector.y) * 5f * Time.deltaTime;
+                new Vector3(PlayerComp.InputVector.x, 0, PlayerComp.InputVector.y) * _speed * Time.deltaTime;
             var targetRotation =
                 Quaternion.LookRotation(new Vector3(PlayerComp.InputVector.x, 0, PlayerComp.InputVector.y), Vector3.up);
             PlayerComp.transform.rotation = Quaternion.Slerp(PlayerComp.transform.rotation, targetRotation, 0.15f);
