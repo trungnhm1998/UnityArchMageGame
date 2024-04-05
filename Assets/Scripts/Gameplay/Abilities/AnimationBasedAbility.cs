@@ -69,6 +69,11 @@ namespace ArchMageTest.Gameplay.Abilities
             Debug.Log("Applying " +
                       $"{_abilityDef.AbilityParameters.Damage}dmg * {_abilityDef.AbilityParameters.Level}lvl " +
                       $"= {_abilityDef.AbilityParameters.Damage * _abilityDef.AbilityParameters.Level} to target");
+
+            var targetAttributeSystem = target.AttributeSystem;
+            targetAttributeSystem.TryGetAttributeValue(AttributeSets.Health, out var healthValue);
+            healthValue.BaseValue -= _abilityDef.AbilityParameters.Damage * _abilityDef.AbilityParameters.Level;
+            targetAttributeSystem.SetAttributeValue(AttributeSets.Health, healthValue);
         }
 
         protected override void OnAbilityEnded()
